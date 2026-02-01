@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TaskStatus",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["task_id", "description", "status", "updated_at"],
+  "properties": {
+    "task_id": {"type": "string"},
+    "description": {"type": "string"},
+    "status": {
+      "type": "string",
+      "enum": ["pending", "assigned", "in_progress", "review", "completed", "blocked"]
+    },
+    "assigned_to": {"type": "string"},
+    "blocked_by": {"type": "array", "items": {"type": "string"}},
+    "result": {"type": "string"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  }
+}

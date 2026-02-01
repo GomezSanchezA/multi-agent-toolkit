@@ -91,6 +91,7 @@ python examples/research_team.py \
 - `quality/` - review criteria and peer review
 - `examples/` - working examples
 - `docs/` - documentation
+- `schemas/` - JSON schemas for structured outputs
 - `templates/` - SOUL and other templates
 - `tests/` - unit tests
 
@@ -99,6 +100,6 @@ python examples/research_team.py \
 - Webhook-based notification (replace polling)
 - LLM integration layer (model abstraction for think/act)
 - Shared scratchpad or draft space
-- Standardized JSON schemas for results
+- Standardized JSON schemas for results (added)
 
 If you want me to tackle any of the roadmap items, point me at one and I will build it.

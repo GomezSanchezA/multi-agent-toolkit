@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExperimentResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["test_id", "system", "date", "summary", "metrics"],
+  "properties": {
+    "test_id": {"type": "string"},
+    "test_name": {"type": "string"},
+    "protocol_version": {"type": "string"},
+    "system": {"type": "string"},
+    "model_family": {"type": "string"},
+    "date": {"type": "string", "format": "date"},
+    "stimuli": {"type": "array", "items": {"type": "string"}},
+    "metrics": {
+      "type": "object",
+      "additionalProperties": {"type": ["number", "string", "boolean"]}
+    },
+    "summary": {"type": "string"},
+    "notes": {"type": "string"},
+    "links": {"type": "array", "items": {"type": "string"}}
+  }
+}
