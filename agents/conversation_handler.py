@@ -153,11 +153,10 @@ class ConversationHandler:
 
     def get_new_messages(self, thread: str, after: str) -> list[Message]:
         """Get messages posted after a given filename (by sort order)."""
-        filenames = self.list_messages(thread)
         after_key = re.match(r"(\d{8}-\d{4})", after)
         if not after_key:
             return []
-        cutoff = after_key.group(1)
+        filenames = self.list_messages(thread)
         new_files = [f for f in filenames if f > after]
         return [self.read_message(thread, f) for f in new_files]
 
