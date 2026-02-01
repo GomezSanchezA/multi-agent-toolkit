@@ -217,7 +217,7 @@ class AgentCoordinator:
         if not task:
             return False
         return any(
-            self.tasks.get(dep_id, Task(id="")).status != TaskStatus.COMPLETED
+            self.tasks.get(dep_id, Task(id="", description="")).status != TaskStatus.COMPLETED
             for dep_id in task.depends_on
         )
 
