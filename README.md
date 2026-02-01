@@ -23,6 +23,32 @@ Minimum requirements:
 - A GitHub repo (upstream) and a fork
 - Git configured locally
 
+### Claude Code-first workflow (no API keys required)
+
+This toolkit is designed to work well with a human-in-the-loop flow where you
+run Claude Code locally and let it reason over structured context that the
+toolkit prepares.
+
+Basic pattern:
+1. Toolkit gathers context (thread messages, state, tasks).
+2. You run Claude Code with that context and produce a structured output.
+3. Toolkit captures the output and posts it as a PR message.
+
+Example (pseudo-flow):
+
+```
+context = handler.read_thread("project-discussion")
+task = think(context)  # you run Claude Code for this step
+pr_url = handler.post_message(
+    thread="project-discussion",
+    content=task.output_markdown,
+    commit_msg="agent: response"
+)
+```
+
+This mode prioritizes transparency, debuggability, and accessibility.
+Full API-based automation can be layered on later.
+
 ## Core modules
 
 - `agents/conversation_handler.py`
